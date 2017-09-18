@@ -1,20 +1,13 @@
+var values = ["ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"];
+var suits = ["spades", "clubs", "hearts", "diamonds"];
+
 $(document).ready(function(){
-  $("#wordPlay").submit(function(event) {
-    var sentence = $("input#sentence").val();
-    var sentenceArray = sentence.split(" ");
-    var newSentenceArray = [];
+  suits.forEach(function(suit){
+    values.forEach(function(value){
+      $(".output").append("<li>" + value + "  of " + suit + "</li>");
+    })
+  })
 
-    sentenceArray.forEach(function(word) {
-      if (word.length >= 3) {
-        newSentenceArray.push(word);
-      }
-    });
 
-    newSentenceArray.reverse();
-      var fixString = newSentenceArray.join(" ");
-      $(".output").prepend(fixString);
 
-    event.preventDefault();
-
-  });
 });
